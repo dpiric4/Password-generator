@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="bs">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Password Generator</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="wrap">
+    <div class="card">
+      <h1>Generator lozinki</h1>
+      <p class="sub">Brzo kreiraj jake, nasumične lozinke – sa izborom dužine, znakova i procjenom jačine.</p>
+
+      <div class="row">
+        <section class="pw-box">
+          <div class="pw-field">
+            <input id="password" type="text" placeholder="Klikni &quot;Generiši&quot;…" readonly />
+            <button id="copyBtn" class="btn secondary" disabled>Kopiraj</button>
+            <button id="genBtn" class="btn">Generiši</button>
+          </div>
+          <div class="kpi">
+            <meter id="strength" min="0" max="100" low="40" high="70" optimum="90" value="0"></meter>
+            <span id="strengthLabel">Jačina: —</span>
+            <span id="entropy" title="Procjena entropije">0 bita</span>
+          </div>
+        </section>
+
+        <section>
+          <div class="range">
+            <label for="len">Dužina:</label>
+            <input id="len" type="range" min="8" max="64" value="16" />
+            <span id="lenVal">16</span>
+          </div>
+
+          <div class="grid" style="margin-top:12px">
+            <div class="opt"><input id="lower" type="checkbox" checked><label for="lower">Mala slova (a–z)</label></div>
+            <div class="opt"><input id="upper" type="checkbox" checked><label for="upper">Velika slova (A–Z)</label></div>
+            <div class="opt"><input id="digits" type="checkbox" checked><label for="digits">Brojevi (0–9)</label></div>
+            <div class="opt"><input id="symbols" type="checkbox"><label for="symbols">Simboli (!@#$…)</label></div>
+            <div class="opt"><input id="noSimilar" type="checkbox" checked><label for="noSimilar">Bez sličnih (O0, l1, I)</label></div>
+            <div class="opt"><input id="noAmbiguous" type="checkbox"><label for="noAmbiguous">Bez neugodnih ({}[]/\\'\"`~,;:.<>)</label></div>
+          </div>
+          <small class="help">Savjet: Zabilježi lozinku u menadžeru lozinki i uključi 2FA gdje je moguće.</small>
+        </section>
+      </div>
+
+      <div class="foot">
+        <button id="genBtn2" class="btn">Generiši novu</button>
+        <button id="copyBtn2" class="btn secondary" disabled>Kopiraj</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="toast" class="toast">Kopirano! ✅</div>
+
+  <script src="script.js"></script>
+</body>
+</html>
